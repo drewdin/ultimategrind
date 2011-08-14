@@ -1,0 +1,52 @@
+body {
+	font-family:			"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:				small;
+	color: #333;
+	background-color:		#657486;
+	background-repeat:		no-repeat;
+	background-position:	right top;
+	overflow-y:				scroll;
+	margin:					0px;
+	padding:				0px;
+	border:					0px;
+}
+
+#mainContent {
+	width:					1014px;
+	margin:					0 auto 0 auto;	/* top right bottom left */
+	padding:				0;
+	border:					thin solid black;
+	background-color:		white;
+}
+
+#logo {
+	background-image:		url('../images/the_ultimate_grind_logo_1024x100.jpg');
+	background-repeat:		no-repeat;
+	height:					200px;
+}
+
+#nav {
+	width:					200px;
+	float:					left;
+}
+
+#results {
+	margin-left:			250px;
+}
+
+#welcome {
+	margin-left:			250px;
+	padding:				0px 10px 0px 5px;
+}
+
+#footer {
+	clear:					left;	
+}
+
+.error {
+	color:					red;
+}
+
+.ok {
+	color:					green;
+}
