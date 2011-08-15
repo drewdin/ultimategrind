@@ -1,0 +1,15 @@
+<?php
+// define database connections
+define( 'DB_HOST', 'hostname');
+define( 'DB_NAME', 'dbname');
+define( 'DB_USER', 'username');
+define( 'DB_PASS', 'password');
+
+
+// define salt
+define( 'SALT', '40 char salt here' );
+
+
+// recaptcha info
+define( 'PUBLIC_KEY', 'public key here' );
+define( 'PRIVATE_KEY', 'private key here' );

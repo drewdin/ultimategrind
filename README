@@ -1,0 +1,11 @@
+DREWDIN BUILT
+
+In order to get the application working propely, you need to setup a database and a user first. The user will need basic
+CRUD permissions. Once created, open the 
+
+connection.inc.php.default
+
+file located in the includes/ folder. Add the database login info, a salt and your individual recaptcha public 
+and private keys to get the application working properly. save the file and rename it to
+
+connection.inc.php
