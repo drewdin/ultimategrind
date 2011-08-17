@@ -16,29 +16,21 @@
 	$passwordOK = $checkPwd->check();
 	
 	if( !$emailOK ) {
-		
 		$errors[] = $checkEmail->getErrors();
-		
 	}
 	
 	if( !$passwordOK ) {
-		
 		$errors[] = $checkPwd->getErrors();
-		
 	}
 	
 	if( $password != $retyped ) {
-		
 		$errors[] = 'Your passwords do not match.';
-		
 	}
 	
 	$response = recaptcha_check_answer( PRIVATE_KEY, $_SERVER['REMOTE_ADDR'], $_POST['recaptcha_challenge_field'], $_POST['recaptcha_response_field'] );
 	
 	if( !$response->is_valid ){
-
 		$errors[] = 'The recaptcha values are incorrect';
-		
 	}
 	
 	if( !$errors ) {
@@ -54,7 +46,6 @@
 		$emailCount = mysqli_num_rows( $result );
 		
 		if( $userCount == 0 ) {
-			
 			if( $emailCount == 0 ) {
 				
 				// encrypt the password and salt
@@ -69,26 +60,16 @@
 				
 				// insert details into database
 				if( mysqli_query( $dbc, $sql ) === true ) {
-					
 					$redirect = 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';
 					header( "Location: $redirect" );
 					exit;
-					
 				} else {
-					
 					$errors[] = mysqli_error( $dbc );
-					
 				}
 			} else {
-				
 				$errors[] = "$email is already taken, please choose another username.";
-				
 			}
-		
-		} else {
-				
+		} else {	
 			$errors[] = "$username is already taken, please choose another username.";
-				
 		}
-		
 	}
