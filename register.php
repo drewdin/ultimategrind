@@ -41,38 +41,38 @@
 				
 				<p>
 				    <label for="email">Email:</label>
-				    <input type="text" name="email" id="email" value="<?php if( !empty( $email ) ) echo $email; ?>" required>
+				    <input type="text" name="email" id="email" value="<?php if( !empty( $email ) ) echo $email; ?>" required >
 				</p>
 				
 				<p>
 				    <label for="username">Username:</label>
-				    <input type="text" name="username" id="username" value="<?php if( !empty( $username ) ) echo $username; ?>" required>
+				    <input type="text" name="username" id="username" value="<?php if( !empty( $username ) ) echo $username; ?>" required >
 				</p>
 				
 				<p>
 				    <label for="first_name">First Name:</label>
-				    <input type="text" name="first_name" id="first_name" value="<?php if( !empty( $firstname ) ) echo $firstname; ?>" required>
+				    <input type="text" name="first_name" id="first_name" value="<?php if( !empty( $firstname ) ) echo $firstname; ?>" required >
 				</p>
 				
 				<p>
 				    <label for="last_name">Last Name:</label>
-				    <input type="text" name="last_name" id="last_name" value="<?php if( !empty( $lastname ) ) echo $lastname; ?>" required>
+				    <input type="text" name="last_name" id="last_name" value="<?php if( !empty( $lastname ) ) echo $lastname; ?>" required >
 				</p>
 				
 				<p>
 				    <label for="pwd">Password:</label>
-				    <input type="password" name="pwd" id="pwd" required>
+				    <input type="password" name="pwd" id="pwd" required >
 				</p>
 				
 				<p>
 				    <label for="conf_pwd">Confirm password:</label>
-				    <input type="password" name="conf_pwd" id="conf_pwd" required>
+				    <input type="password" name="conf_pwd" id="conf_pwd" required >
 				</p>
 					<?php
             		echo recaptcha_get_html( PUBLIC_KEY );
             		?>
 				<p>
-					<input name="register" type="submit" id="register" value="Register">
+					<input name="register" type="submit" id="register" value="Register" >
 				</p>
 				
 			</form>
