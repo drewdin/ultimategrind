@@ -255,3 +255,59 @@
 		return ( isset( $errors ) ) ? $errors : $strengthPlan;
 		
 	}
+	
+	function check_email_address( $email ) {
+	$email_pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i';
+	if( !preg_match( $email_pattern, $email ) ) {
+		return false;
+	}
+	
+	$atIndex = strrpos($email, "@");
+	if( is_bool( $atIndex ) && !$atIndex ) {
+		return false;
+	} else {
+		$domain = substr( $email, $atIndex + 1 );
+		$local = substr( $email, 0, $atIndex );
+		
+		$localLen = strlen( $local );
+		$domainLen = strlen( $domain );
+		if( $localLen < 1 || $localLen > 64 ) {
+			// local part length exceeded
+			return false;
+		} elseif( $domainLen < 1 || $domainLen > 255 ) {
+			// domain part length exceeded
+			return false;
+		}
+	}
+	
+	if( !preg_match( '/^(\\\\.|[A-Za-z0-9!#%&`_=\\/$\'*+?^{}|~.-])+$/', str_replace( "\\\\", "", $local ) ) ) {
+		// character not valid in local part unless local part is quoted
+		if( !preg_match( '/^"(\\\\"|[^"])+"$/', str_replace( "\\\\", "", $local ) ) ) {
+			return false;
+		}
+	}
+	
+	if( $local[0] == '.' || $local[$localLen - 1] == '.' ) {
+		// local part starts or ends with '.'
+		return false;
+	} elseif( preg_match( '/\\.\\./', $local ) ) {
+		// local part has two consecutive dots
+		return false;
+	}
+	
+	if( !preg_match( '/^[A-Za-z0-9\\-\\.]+$/', $domain ) ) {
+		// character not valid in domain part
+		return false;
+	}
+	
+	if ( preg_match( '/\\.\\./', $domain ) ) {
+		// domain part has two consecutive dots
+		return false;
+	}
+	
+	if( !( checkdnsrr( $domain, "MX" ) || checkdnsrr( $domain, "A" ) ) ) {
+		// domain not found in DNS
+		return false;
+	}
+	return true;
+}

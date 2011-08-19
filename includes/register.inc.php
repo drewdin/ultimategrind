@@ -1,13 +1,11 @@
 <?php
 	require_once( './classes/Ps2/CheckPassword.php' );
-	require_once( './classes/Ps2/CheckEmail.php' );
 	require_once( 'functions.inc.php' );
 	
 	$usernameMinChars = 6;
 	$errors = array();
 	
-	$checkEmail = new Ps2_CheckEmail( $email );
-	$emailOK = $checkEmail->check();
+	$emailOK = check_email_address( $email )
 	
 	$checkPwd = new Ps2_CheckPassword( $password, $usernameMinChars );
 	//$checkPwd->requireMixedCase();
@@ -16,7 +14,7 @@
 	$passwordOK = $checkPwd->check();
 	
 	if( !$emailOK ) {
-		$errors[] = $checkEmail->getErrors();
+		$errors[] = 'Your email address is invalid';
 	}
 	
 	if( !$passwordOK ) {
