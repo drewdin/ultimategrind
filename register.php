@@ -3,7 +3,7 @@
 	require_once( './includes/connection.inc.php' );
 	require_once( './includes/recaptchalib.inc.php' );
 	
-	$dbc = mysqli_connect( DB_HOST, DB_USER, DB_PASS, DB_NAME ) or die('Could not connect to database');
+	$dbc = mysqli_connect( DB_HOST, DB_USER, DB_PASS, DB_NAME ) or die( 'Could not connect to database' );
 	
 	if ( isset( $_POST['register'] ) ) {
 		
@@ -22,7 +22,7 @@
 	require_once( './includes/logo.inc.php' );
 	require_once( './includes/nav_menu.inc.php' );
 	
-	echo 'h1>Register for the Ultimate Grind Personalized warm-up</h1>';
+	echo '<h1>Register for the Ultimate Grind Personalized warm-up</h1>';
 
 	if( isset( $errors ) && !empty( $errors ) ) {
 		

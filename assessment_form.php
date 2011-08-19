@@ -13,7 +13,7 @@
 	$dbc = mysqli_connect( DB_HOST, DB_USER, DB_PASS, DB_NAME ) or die( mysqli_error( $dbc ) );
 	
 	// get categories from database
-	$sql = 'SELECT `category_id`, `category` FROM `categories`;';
+	$sql = 'SELECT `category_id`, `category` FROM `categories` ORDER BY `order`;';
 	$data = mysqli_query( $dbc, $sql ) or die( 'Categories ' . mysqli_error( $dbc ) );
 	
 	$categories = array();
@@ -46,7 +46,7 @@
 	require_once( './includes/logo.inc.php' );
 	
 	echo '<a href="index.php">Back:</a>';
-	echo '<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">';
+	echo '<form method="post" action="' . $_SERVER['PHP_SELF'] . '">';
 	
 	foreach( $categories as $category ) :
 		

@@ -5,7 +5,7 @@
 	$usernameMinChars = 6;
 	$errors = array();
 	
-	$emailOK = check_email_address( $email )
+	$emailOK = check_email_address( $email );
 	
 	$checkPwd = new Ps2_CheckPassword( $password, $usernameMinChars );
 	//$checkPwd->requireMixedCase();

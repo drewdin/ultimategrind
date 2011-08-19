@@ -113,10 +113,11 @@
 	        					'body weight squats' );
 	        	break;
 	    	case 3:
-	        	$warmup = array('roll calves',
-	        					'stretch calves',
+	        	$warmup = array('roll outside of calves',
+	        					'stretch outside of calves',
+	        					'calf raises with toes in',
 	        					'toe raises',
-	        					'body weight squats' );
+	        					'prisioner squats' );
 	        	break;
 	        case 4:
 	        	$warmup = array('Roll inside of left leg and outside of right hip',
@@ -143,16 +144,19 @@
 	        					'step up lunges progressing to single leg squat (both legs)' );
 	        	break;
 	        case 8:
-	        	$warmup = array('outside knee-pull lunges (both legs)',
-	        					'single leg YTAW (concentrate on maintaining arch)',
-	        					'step up lunges progressing to single leg squat (both legs)',
-	        					'multi-planar (front, side, twisting) hops to both legs' );
+	        	$warmup = array('roll calves',
+	        					'stretch calves',
+	        					'outside knee-pull lunges (both legs)',
+	        					'step up lunges progressing to single leg squat (both legs)' );
 	        	break;
 	        case 9:
-	        	$warmup = array('bridges',
+	        	$warmup = array('alternate between warmps A and B every tree weeks',
+	        					'warmp A',
+	        					'bridges',
 	        					'squats',
 	        					'single leg squats, both legs',
 	        					'one arm press standing on opposite leg',
+	        					'warmp B',
 	        					'1 leg YTAW on both legs',
 	        					'deadlifts with no resistance',
 	        					'single dead lift with cobra, progressing on stability pad',
