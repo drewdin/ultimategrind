@@ -18,64 +18,61 @@
 	}
 	
 	require_once( './includes/title.inc.php' );
-
 	require_once( './includes/header.inc.php' );
-	
 	require_once( './includes/logo.inc.php' );
-	
 	require_once( './includes/nav_menu.inc.php' );
-?>
-			<h1>Register for the Ultimate Grind Personalized warm-up</h1>
+	
+	echo 'h1>Register for the Ultimate Grind Personalized warm-up</h1>';
+
+	if( isset( $errors ) && !empty( $errors ) ) {
+		
+		echo '<ul>';
+		foreach( $errors as $error ) {
+			echo "<li class='error'>$error</li>";
+		}
+		echo '</ul>';
+		
+	}
+	?>
+	<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+		
+		<p>
+		    <label for="email">Email:</label>
+		    <input type="text" name="email" id="email" value="<?php if( !empty( $email ) ) echo $email; ?>" required >
+		</p>
+		
+		<p>
+		    <label for="username">Username:</label>
+		    <input type="text" name="username" id="username" value="<?php if( !empty( $username ) ) echo $username; ?>" required >
+		</p>
+		
+		<p>
+		    <label for="first_name">First Name:</label>
+		    <input type="text" name="first_name" id="first_name" value="<?php if( !empty( $firstname ) ) echo $firstname; ?>" required >
+		</p>
+		
+		<p>
+		    <label for="last_name">Last Name:</label>
+		    <input type="text" name="last_name" id="last_name" value="<?php if( !empty( $lastname ) ) echo $lastname; ?>" required >
+		</p>
+		
+		<p>
+		    <label for="pwd">Password:</label>
+		    <input type="password" name="pwd" id="pwd" required >
+		</p>
+		
+		<p>
+		    <label for="conf_pwd">Confirm password:</label>
+		    <input type="password" name="conf_pwd" id="conf_pwd" required >
+		</p>
 			<?php
-				if( isset( $errors ) && !empty( $errors ) ) {
-					
-					echo '<ul>';
-					foreach( $errors as $error ) {
-						echo "<li class='error'>$error</li>";
-					}
-					echo '</ul>';
-					
-				}
-			?>
-			<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
-				
-				<p>
-				    <label for="email">Email:</label>
-				    <input type="text" name="email" id="email" value="<?php if( !empty( $email ) ) echo $email; ?>" required >
-				</p>
-				
-				<p>
-				    <label for="username">Username:</label>
-				    <input type="text" name="username" id="username" value="<?php if( !empty( $username ) ) echo $username; ?>" required >
-				</p>
-				
-				<p>
-				    <label for="first_name">First Name:</label>
-				    <input type="text" name="first_name" id="first_name" value="<?php if( !empty( $firstname ) ) echo $firstname; ?>" required >
-				</p>
-				
-				<p>
-				    <label for="last_name">Last Name:</label>
-				    <input type="text" name="last_name" id="last_name" value="<?php if( !empty( $lastname ) ) echo $lastname; ?>" required >
-				</p>
-				
-				<p>
-				    <label for="pwd">Password:</label>
-				    <input type="password" name="pwd" id="pwd" required >
-				</p>
-				
-				<p>
-				    <label for="conf_pwd">Confirm password:</label>
-				    <input type="password" name="conf_pwd" id="conf_pwd" required >
-				</p>
-					<?php
-            		echo recaptcha_get_html( PUBLIC_KEY );
-            		?>
-				<p>
-					<input name="register" type="submit" id="register" value="Register" >
-				</p>
-				
-			</form>
+    		echo recaptcha_get_html( PUBLIC_KEY );
+    		?>
+		<p>
+			<input name="register" type="submit" id="register" value="Register" >
+		</p>
+		
+	</form>
 <?php
 	require_once( './includes/footer.inc.php' );
 ?>
